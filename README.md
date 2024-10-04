@@ -7,7 +7,9 @@
 
 ### Módulo de Facturas
 1. **Ver facturas pendientes**: Generadas desde el punto de venta por agentes de ventas.
-  ![image](https://github.com/user-attachments/assets/f31561bb-7377-4670-99af-776f46c16c95)
+    <img width="960" alt="Captura de pantalla 2024-10-04 094840" src="https://github.com/user-attachments/assets/8a6eb195-020e-40dc-ba6e-13f593304e86">
+
+
 
 3. **Histórico de facturas pagadas**: Facturas que ya han sido pagadas y están fuera del proceso de cobro.
 
