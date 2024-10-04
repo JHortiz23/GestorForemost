@@ -5,6 +5,11 @@
 
 ## Funcionalidades principales
 
+### Módulo de Inicio
+Menú principal de la aplicación.
+    <img width="960" alt="Captura de pantalla 2024-10-04 094815" src="https://github.com/user-attachments/assets/f01b4549-c438-4733-aef9-aa3008254fff">
+
+
 ### Módulo de Facturas
 1. **Ver facturas pendientes**: Generadas desde el punto de venta por agentes de ventas.
     <img width="960" alt="Captura de pantalla 2024-10-04 094840" src="https://github.com/user-attachments/assets/8a6eb195-020e-40dc-ba6e-13f593304e86">
@@ -12,12 +17,23 @@
 
 
 3. **Histórico de facturas pagadas**: Facturas que ya han sido pagadas y están fuera del proceso de cobro.
+     <img width="960" alt="Captura de pantalla 2024-10-04 094902" src="https://github.com/user-attachments/assets/f70811fb-7306-41ea-9b3e-986a4491fc06">
+
 
 ### Módulo de Clientes
 1. **Lista de clientes**: Permite ver la lista completa de los clientes de la empresa junto con su información detallada, facilitando la labor de los gestores de cobro.
+     <img width="960" alt="Captura de pantalla 2024-10-04 094927" src="https://github.com/user-attachments/assets/72a0dae9-24d9-4421-9355-7c7a9ddb3716">
+     <img width="960" alt="Captura de pantalla 2024-10-04 094948" src="https://github.com/user-attachments/assets/19255d05-0838-403f-9036-046478c589b6">
+
+
+   
 
 ### Módulo de Cobros
 1. **Gestión de Cobros**: Módulo para asignar cuentas con saldos pendientes a los gestores de cobro. La asignación puede realizarse por día o turno y se puede redistribuir las cuentas que aún están pendientes.
+<img width="959" alt="Captura de pantalla 2024-10-04 095426" src="https://github.com/user-attachments/assets/f8d546b8-f495-4382-af4f-114a403a47ec">
+<img width="960" alt="Captura de pantalla 2024-10-04 105426" src="https://github.com/user-attachments/assets/ec7d5973-0045-4393-ac61-737d9ce4e81f">
+
+
 
 ## Instalación
 
