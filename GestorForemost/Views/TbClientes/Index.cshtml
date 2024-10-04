@@ -1,0 +1,53 @@
+﻿@model IEnumerable<GestorForemost.Models.TbCliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Clientes</li>
+        <li class="breadcrumb-item active" aria-current="page">Lista Clientes</li>
+    </ol>
+</nav>
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th>@Html.DisplayNameFor(model => model.IdentificacionCliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.NombreCliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.Apellido1Cliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.Apellido2Cliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.TelefonoCliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.CorreoCliente)</th>
+                    <th>@Html.DisplayNameFor(model => model.DireccionCliente)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="text-center">
+                        <td>@Html.ActionLink(item.IdentificacionCliente, "Details", "TbClientes", new { id = item.IdentificacionCliente }, null)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NombreCliente)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Apellido1Cliente)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Apellido2Cliente)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TelefonoCliente)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CorreoCliente)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DireccionCliente)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        No hay clientes registrados.
+    </div>
+}

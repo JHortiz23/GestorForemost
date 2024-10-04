@@ -1,0 +1,49 @@
+﻿@model GestorForemost.Models.TbCliente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Cobros</li>
+        <li class="breadcrumb-item" aria-current="page">Gestión de Cobros</li>
+        <li class="breadcrumb-item active" aria-current="page">Detalles de Cliente</li>
+    </ol>
+</nav>
+<hr />
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Detalles del Cliente</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3 font-weight-bold">Nombre:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreCliente)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Primer Apellido:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellido1Cliente)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Segundo Apellido:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellido2Cliente)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Teléfono:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.TelefonoCliente)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Correo Electrónico:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.CorreoCliente)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Dirección:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.DireccionCliente)</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-between">
+            <a asp-action="Index" asp-controller="TbGestionSaldoes" class="btn btn-secondary">Volver a la Lista</a>
+        </div>
+    </div>
+</div>

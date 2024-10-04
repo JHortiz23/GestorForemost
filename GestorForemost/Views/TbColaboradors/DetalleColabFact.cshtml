@@ -1,0 +1,50 @@
+﻿@model GestorForemost.Models.TbColaborador
+
+@{
+    ViewData["Title"] = "Detalles del Colaborador";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Facturas</li>
+        <li class="breadcrumb-item" aria-current="page">Facturas Pendientes</li>
+        <li class="breadcrumb-item active" aria-current="page">Detalles del Agente</li>
+    </ol>
+</nav>
+<hr />
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Detalles del Agente</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3 font-weight-bold">Nombre:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreColaborador)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Primer Apellido:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellido1Colaborador)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Segundo Apellido:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Apellido2Colaborador)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Teléfono:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.TelefonoColaborador)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">Correo Electrónico:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.CorreoColaborador)</dd>
+
+            <dt class="col-sm-3 font-weight-bold">País:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.PaisColaborador)</dd>
+
+        </dl>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex justify-content-between">
+            <a asp-action="Index" asp-controller="TbFacturas" class="btn btn-secondary">Volver a la Lista</a>
+        </div>
+    </div>
+</div>

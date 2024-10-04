@@ -1,0 +1,98 @@
+﻿@model IEnumerable<GestorForemost.Models.TbGestionSaldo>
+
+@{
+    ViewData["Title"] = "Gestión de Cobros";
+    var hasData = Model.Any();
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Cobros</li>
+        <li class="breadcrumb-item active" aria-current="page">Gestión de Cobros</li>
+    </ol>
+</nav>
+<hr />
+<h3 class="my-4">Gestión de Cobros</h3>
+@if (hasData)
+{
+    <p>
+        <form asp-action="ReAsignar" method="post">
+            <input type="hidden" name="fechaSaldo" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+            <button type="submit" class="btn btn-success" onclick="return confirm('¿Estás seguro de que deseas re-asignar las cuentas?');">
+                Re-asignar Cuentas
+            </button>
+        </form>
+    </p>
+
+}
+else
+{
+    <p>
+        <a asp-action="Create" class="btn btn-success" onclick="return confirm('¿Estás seguro que quieres generar una asignación de cobros?');">Asignar Cuentas</a>
+    </p>
+
+}
+<div class="table-responsive">
+    @if (hasData)
+    {
+        <table class="table table-bordered table-hover text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IdSaldo)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdFacturaSaldo)</th>
+                    <th>@Html.DisplayNameFor(model => model.NombreClienteSaldo)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdGestorSaldo)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaAsignSaldo)</th>
+                    <th>@Html.DisplayNameFor(model => model.montoFactura)</th>
+                    <th>@Html.DisplayNameFor(model => model.EstadoSaldo)</th>
+                    <th>X</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.IdSaldo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IdFacturaSaldo)</td>
+                        <td>
+                            @Html.ActionLink(item.NombreClienteSaldo, "DetalleClienteSaldo", "TbClientes", new { id = item.identificacionCliente}, null)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.NombreColaboradorSaldo)</td>
+                        <td>@string.Format("{0:dd/MM/yyyy}", item.FechaAsignSaldo)</td>
+                        <td>$@item.montoFactura</td>
+                        <td>
+                            @if (item.EstadoSaldo == 1)
+                            {
+                                <span style="color:red">PENDIENTE</span>
+                            }
+                            else if (item.EstadoSaldo == 0)
+                            {
+                                <span style="color:green">PAGADA</span>
+                            }
+                        </td>
+                        <td>
+                            <form asp-action="Facturar" method="post">
+                                <input type="hidden" name="idFactura" value="@item.IdFacturaSaldo" />
+                                <input type="hidden" name="idSaldo" value="@item.IdSaldo" />
+                                <button type="submit" class="btn btn-outline-success" onclick="return confirm('¿Estás seguro de que deseas facturar este saldo?');">
+                                    <i class="bi bi-cash-coin"> Facturar</i>
+                                </button>
+                            </form>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            No hay cuentas asignadas para el dia de hoy.
+        </div>
+    }
+</div>
+
+

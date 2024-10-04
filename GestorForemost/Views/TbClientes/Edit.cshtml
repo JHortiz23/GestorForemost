@@ -1,0 +1,70 @@
+﻿@model GestorForemost.Models.TbCliente
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Actualizar Datos</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Clientes</li>
+        <li class="breadcrumb-item" aria-current="page">Lista Clientes</li>
+        <li class="breadcrumb-item active" aria-current="page">Actualizar Datos</li>
+    </ol>
+</nav>
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <form asp-action="Edit" class="p-4 shadow-sm rounded bg-light">
+            <h4 class="mb-3">Información de Cliente</h4>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <input type="hidden" asp-for="IdentificacionCliente" />
+
+            <div class="mb-3">
+                <label asp-for="NombreCliente" class="form-label"></label>
+                <input asp-for="NombreCliente" class="form-control" placeholder="Nombre" />
+                <span asp-validation-for="NombreCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Apellido1Cliente" class="form-label"></label>
+                <input asp-for="Apellido1Cliente" class="form-control" placeholder="Primer Apellido" />
+                <span asp-validation-for="Apellido1Cliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Apellido2Cliente" class="form-label"></label>
+                <input asp-for="Apellido2Cliente" class="form-control" placeholder="Segundo Apellido" />
+                <span asp-validation-for="Apellido2Cliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TelefonoCliente" class="form-label"></label>
+                <input asp-for="TelefonoCliente" class="form-control" placeholder="Teléfono" />
+                <span asp-validation-for="TelefonoCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CorreoCliente" class="form-label"></label>
+                <input asp-for="CorreoCliente" class="form-control" placeholder="Correo Electrónico" />
+                <span asp-validation-for="CorreoCliente" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="DireccionCliente" class="form-label"></label>
+                <input asp-for="DireccionCliente" class="form-control" placeholder="Dirección" />
+                <span asp-validation-for="DireccionCliente" class="text-danger"></span>
+            </div>
+
+            <div class="d-grid gap-2">
+                <input type="submit" value="Guardar" class="btn btn-primary btn-block" />
+                <a asp-action="Index" class="btn btn-outline-secondary">Volver a la Lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

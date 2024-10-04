@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GestorForemost.Models.TbFactura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+        </li>
+        <li class="breadcrumb-item" aria-current="page">Facturas</li>
+        <li class="breadcrumb-item active" aria-current="page">Histórico Facturas</li>
+    </ol>
+</nav>
+
+@if (Model != null && Model.Any())
+{
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped text-center">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.IdFactura)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaFactura)</th>
+                    <th>@Html.DisplayNameFor(model => model.TipoFactura)</th>
+                    <th>@Html.DisplayNameFor(model => model.NombreCliente)</th>
+                    <th>Agente de Venta</th>
+                    <th>@Html.DisplayNameFor(model => model.MontoFactura)</th>
+                    <th>@Html.DisplayNameFor(model => model.EstadoFactura)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.IdFactura</td>
+                        <td>
+                            <strong>@string.Format("{0:dd/MM/yyyy}", item.FechaFactura)</strong>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.TipoFactura)</td>
+                        <td>
+                            @Html.ActionLink(item.NombreCliente, "DetalleClienteHisto", "TbClientes", new { id = item.ClienteFactura }, null)
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.NombreColaborador, "DetalleColabHist", "TbColaboradors", new { id = item.ColaboradorFactura }, null)
+                        </td>
+                        <td>$@item.MontoFactura</td>
+                        <td>
+                            @if (item.EstadoFactura == 1)
+                            {
+                                <span style="color:red">FACTURA PENDIENTE</span>
+                            }
+                            else if (item.EstadoFactura == 0)
+                            {
+                                <span style="color:green">FACTURA PAGADA</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        No hay históricos facturas.
+    </div>
+}

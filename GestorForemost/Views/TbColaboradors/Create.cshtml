@@ -1,0 +1,77 @@
+﻿@model GestorForemost.Models.TbColaborador
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TbColaborador</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="IdentificacionColaborador" class="control-label"></label>
+                <input asp-for="IdentificacionColaborador" class="form-control" />
+                <span asp-validation-for="IdentificacionColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NombreColaborador" class="control-label"></label>
+                <input asp-for="NombreColaborador" class="form-control" />
+                <span asp-validation-for="NombreColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido1Colaborador" class="control-label"></label>
+                <input asp-for="Apellido1Colaborador" class="form-control" />
+                <span asp-validation-for="Apellido1Colaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Apellido2Colaborador" class="control-label"></label>
+                <input asp-for="Apellido2Colaborador" class="form-control" />
+                <span asp-validation-for="Apellido2Colaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TelefonoColaborador" class="control-label"></label>
+                <input asp-for="TelefonoColaborador" class="form-control" />
+                <span asp-validation-for="TelefonoColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CorreoColaborador" class="control-label"></label>
+                <input asp-for="CorreoColaborador" class="form-control" />
+                <span asp-validation-for="CorreoColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FechaIngresoColab" class="control-label"></label>
+                <input asp-for="FechaIngresoColab" class="form-control" />
+                <span asp-validation-for="FechaIngresoColab" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PuestoColaborador" class="control-label"></label>
+                <select asp-for="PuestoColaborador" class ="form-control" asp-items="ViewBag.PuestoColaborador"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaisColaborador" class="control-label"></label>
+                <input asp-for="PaisColaborador" class="form-control" />
+                <span asp-validation-for="PaisColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EstadoColaborador" class="control-label"></label>
+                <input asp-for="EstadoColaborador" class="form-control" />
+                <span asp-validation-for="EstadoColaborador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

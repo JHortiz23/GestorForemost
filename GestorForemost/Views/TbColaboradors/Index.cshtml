@@ -1,0 +1,83 @@
+﻿@model IEnumerable<GestorForemost.Models.TbColaborador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreColaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido1Colaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellido2Colaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoColaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CorreoColaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngresoColab)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaisColaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoColaborador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PuestoColaboradorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreColaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido1Colaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Apellido2Colaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoColaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoColaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngresoColab)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaisColaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoColaborador)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PuestoColaboradorNavigation.IdPuesto)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdentificacionColaborador">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdentificacionColaborador">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdentificacionColaborador">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
